@@ -12,7 +12,7 @@ const Footer: React.FC = props => {
         className='py-24 md:px-12 sm:px-3 flex align-middle'
       >
         <div className='mx-auto px-2'>
-          <div className='text-xl mb-2 text-teal-700'>Let's work together.</div>
+          <div className='text-xl mb-2 text-teal-700'>{ 'Let's work together.' }</div>
 
           <div className='text-5xl tracking-wide font-medium'>
             <a
