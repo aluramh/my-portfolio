@@ -261,3 +261,6 @@ const coreTech = [
   { name: 'React', years: 4 },
   { name: 'Vue.js', years: 4 }
 ]
+
+const headline =
+  'Software engineer with 4+ years of work experience in web and mobile development. Experience as a full stack developer in Python, Javascript-based technologies as well as iOS Swift. Worked as lead developer on multiple projects in Jonajo Consulting. M.S. in computer science and a B.S. degree in digital systems and robotics.'
