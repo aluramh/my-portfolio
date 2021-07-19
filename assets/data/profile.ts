@@ -193,13 +193,31 @@ const profile: Project[] = [
   }
 ]
 
-export type Education = {
-  place: string
+export type Degree = {
+  institution: string
+  acronym?: string
+  location: string
   title: string
   year: number
 }
 
-const education: Education[] = []
+const education: Degree[] = [
+  {
+    institution: 'Southern Methodist University',
+    acronym: 'SMU',
+    location: ' Dallas, TX',
+    title: 'M.S. in Computer Science',
+    year: 2016
+  },
+  {
+    institution: 'Monterrey Institute of Technology and Higher Education',
+    // institution: 'Monterrey Tech',
+    acronym: 'ITESM',
+    location: 'Monterrey, MX',
+    title: 'B.S. Digital Systems and Robotics Engineering',
+    year: 2016
+  }
+]
 
 const coreSkills = {
   Languages: [
