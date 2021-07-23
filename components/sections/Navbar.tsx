@@ -1,7 +1,8 @@
 /* This example requires Tailwind CSS v2.0+ */
-import React, { Fragment, FC } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import React, { FC } from 'react'
+import Image from 'next/image'
+import { Disclosure } from '@headlessui/react'
+import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import clsx from 'clsx'
 
 const navigation = [
