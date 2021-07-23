@@ -14,9 +14,8 @@ export default function Home () {
       </Head>
 
       {/* Main is the main view where content gets rendered. The padding is controlled ideally here. */}
-      <main className='sm:px-8 lg:px-24'>
+      <main className='px-4 sm:px-8 lg:px-24'>
         <Headline />
-
 
         <h1 className={styles.title}>
           Welcome to <a href='https://nextjs.org'>Next.js!</a>
