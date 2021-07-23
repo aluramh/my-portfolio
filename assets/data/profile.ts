@@ -64,7 +64,7 @@ const profile: Project[] = [
       'Involved in optimizing deployments into staging environments. Deployment with Docker, Kubernetes.'
     ],
     summary:
-      'Automated business processes by making them more efficient and faster. Improved business workflows by taking unstructured and structured business process data for optimization, reduction of bottlenecks and variance in order to save costs by 10-20%.',
+      'Helped in the automation of business processes by making them more efficient and faster. Improved business workflows by taking unstructured and structured business process data for optimization, reduction of bottlenecks and variance in order to save costs by 10-20%.',
     yearStart: 2020,
     yearEnd: 2020
   },
