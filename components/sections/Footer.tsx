@@ -1,5 +1,5 @@
 import React from 'react'
-import SocialRow from './SocialRow'
+import SocialRow from '../SocialRow'
 
 const Footer: React.FC = props => {
   const d = new Date()

@@ -1,8 +1,8 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import React from 'react'
 import styles from '../styles/Home.module.css'
-import Footer from '../components/Footer'
+import Footer from '../components/sections/Footer'
+import Headline from '../components/sections/Headline'
 
 export default function Home () {
   return (
@@ -13,7 +13,11 @@ export default function Home () {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className={styles.main}>
+      {/* Main is the main view where content gets rendered. The padding is controlled ideally here. */}
+      <main className='sm:px-8 lg:px-24'>
+        <Headline />
+
+
         <h1 className={styles.title}>
           Welcome to <a href='https://nextjs.org'>Next.js!</a>
         </h1>

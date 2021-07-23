@@ -8,13 +8,13 @@ const navigation = [
   { name: 'Dashboard', href: '#', current: true },
   { name: 'Team', href: '#', current: false },
   { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false }
+  { name: 'Calendar', href: '#', current: false },
 ]
 
 const Navbar: FC = props => {
   return (
-    <div className='bg-teal-800'>
-      <Disclosure as='nav' className='container mx-auto'>
+    <nav className='bg-teal-800'>
+      <Disclosure as='div' className='container mx-auto'>
         {({ open }) => (
           <>
             <div className='max-w-7xl mx-auto px-2 sm:px-6 lg:px-8'>
@@ -25,7 +25,7 @@ const Navbar: FC = props => {
                     className={clsx(
                       'inline-flex items-center justify-center p-2 rounded-md text-teal-400',
                       'hover:text-white hover:bg-teal-700',
-                      'focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'
+                      'focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white',
                     )}
                   >
                     <span className='sr-only'>Open main menu</span>
@@ -59,7 +59,7 @@ const Navbar: FC = props => {
                             item.current
                               ? 'bg-teal-900 text-white'
                               : 'text-teal-300 hover:bg-teal-700 hover:text-white',
-                            'px-3 py-2 rounded-md text-sm font-medium'
+                            'px-3 py-2 rounded-md text-sm font-medium',
                           )}
                           aria-current={item.current ? 'page' : undefined}
                         >
@@ -80,10 +80,9 @@ const Navbar: FC = props => {
                     target='_blank'
                     rel='noopener noreferrer'
                     className={clsx(
-                      'bg-teal-300 text-teal-800 transition-all',
-                      'hover:bg-teal-400 hover:text-teal-900',
-                      // 'border-2 border-teal-900',
-                      'px-3 py-2 rounded-md text-sm font-medium'
+                      'px-3 py-2 rounded-md text-sm text-teal-300 font-medium transition-all',
+                      'hover:bg-teal-900 hover:text-teal-400',
+                      'border-2 border-teal-300',
                     )}
                     title='Download my resumé'
                   >
@@ -103,7 +102,7 @@ const Navbar: FC = props => {
                       item.current
                         ? 'bg-teal-900 text-white'
                         : 'text-teal-300 hover:bg-teal-700 hover:text-white',
-                      'block px-3 py-2 rounded-md text-base font-medium'
+                      'block px-3 py-2 rounded-md text-base font-medium',
                     )}
                     aria-current={item.current ? 'page' : undefined}
                   >
@@ -115,7 +114,7 @@ const Navbar: FC = props => {
           </>
         )}
       </Disclosure>
-    </div>
+    </nav>
   )
 }
 
