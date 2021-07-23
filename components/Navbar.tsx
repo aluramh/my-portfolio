@@ -57,8 +57,8 @@ const Navbar: FC = props => {
                           href={item.href}
                           className={clsx(
                             item.current
-                              ? 'bg-gray-900 text-white'
-                              : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                              ? 'bg-teal-900 text-white'
+                              : 'text-teal-300 hover:bg-teal-700 hover:text-white',
                             'px-3 py-2 rounded-md text-sm font-medium'
                           )}
                           aria-current={item.current ? 'page' : undefined}
@@ -70,13 +70,15 @@ const Navbar: FC = props => {
                   </div>
                 </div>
                 <div className='absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
-                  {/* <button className='bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white'>
+                  {/* <button className='bg-teal-800 p-1 rounded-full text-teal-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-teal-800 focus:ring-white'>
                     <span className='sr-only'>View notifications</span>
                     <BellIcon className='h-6 w-6' aria-hidden='true' />
                   </button> */}
 
                   <a
-                    // href={''}
+                    href={'/Alejandro Ramirez Profile (2021-07-21).pdf'}
+                    target='_blank'
+                    rel='noopener noreferrer'
                     className={clsx(
                       'bg-teal-300 text-teal-800 transition-all',
                       'hover:bg-teal-400 hover:text-teal-900',
@@ -99,8 +101,8 @@ const Navbar: FC = props => {
                     href={item.href}
                     className={clsx(
                       item.current
-                        ? 'bg-gray-900 text-white'
-                        : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                        ? 'bg-teal-900 text-white'
+                        : 'text-teal-300 hover:bg-teal-700 hover:text-white',
                       'block px-3 py-2 rounded-md text-base font-medium'
                     )}
                     aria-current={item.current ? 'page' : undefined}
