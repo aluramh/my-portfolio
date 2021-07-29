@@ -28,7 +28,11 @@ export type Project = {
   /**
    * Year when the project ended
    */
-  yearEnd?: number
+  yearEnd?: number,
+  /**
+   * URL string to an image that describes the project
+   */
+  image?: string
 }
 
 export type Degree = {
