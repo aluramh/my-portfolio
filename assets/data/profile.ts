@@ -1,4 +1,30 @@
+// TODO: - Order the highlights by priority! Only 3 will be shown in the cards.
+// Need to rewrite/reorder/merge, whatever!
+
 // ANCHOR: - Type definitions
+
+type TechnicalRole =
+  // All-encompasing
+  | 'frontend'
+  | 'backend'
+  // | 'fullstack'
+  // More granular
+  | 'database'
+  | 'management'
+  | 'data science'
+  | 'devops'
+  | 'testing'
+
+type Highlight = {
+  description: string
+  role: TechnicalRole[]
+}
+
+type Skill = {
+  name: string
+  role: TechnicalRole[]
+  preferredColor?: string
+}
 
 export type Project = {
   /**
@@ -12,7 +38,7 @@ export type Project = {
   /**
    * Responsibiliies, achievements and anything when working
    */
-  highlights: string[]
+  highlights: Highlight[]
   /**
    * Skills required on the job
    */
@@ -28,7 +54,7 @@ export type Project = {
   /**
    * Year when the project ended
    */
-  yearEnd?: number,
+  yearEnd?: number
   /**
    * URL string to an image that describes the project
    */
@@ -43,7 +69,67 @@ export type Degree = {
   year: number
 }
 
+type SkillMap = Record<string, Skill>
+
 // ANCHOR: - Profile Data
+
+const skills: Skill[] = [
+  {
+    name: 'Node.JS',
+    preferredColor: '#026e00',
+    role: ['backend'],
+  },
+  {
+    name: 'Express',
+    preferredColor: '#353535',
+    role: ['backend'],
+  },
+  {
+    name: 'Vue.js',
+    preferredColor: '#42b983',
+    role: ['frontend'],
+  },
+  {
+    name: 'PostgresSQL',
+    preferredColor: '#336791',
+    role: ['database'],
+  },
+  {
+    name: 'JavaScript',
+    preferredColor: '#f7df1e',
+    role: ['frontend', 'backend'],
+  },
+  {
+    name: 'MySQL',
+    preferredColor: '#4479a1',
+    role: ['database'],
+  },
+  {
+    name: 'Python',
+    preferredColor: '#ffd343',
+    role: ['frontend', 'backend', 'data science'],
+  },
+  {
+    name: 'Swift',
+    preferredColor: '#F05138',
+    role: ['frontend'],
+  },
+  {
+    name: 'Docker',
+    preferredColor: '#2496ed',
+    role: ['devops'],
+  },
+  {
+    name: 'Flask',
+    preferredColor: '#000000',
+    role: ['devops'],
+  },
+]
+
+export const skillMap: SkillMap = skills.reduce((all: SkillMap, current) => {
+  all[current.name] = current
+  return all
+}, {})
 
 export const profile: Project[] = [
   {
@@ -51,9 +137,22 @@ export const profile: Project[] = [
     title: 'Full stack developer',
     skills: ['Node.JS', 'Express', 'Vue.js', 'PostgreSQL', 'AWS'],
     highlights: [
-      'Main developer in the microservice of user authentication and data sharing of over 20,000 users.',
-      'Migrated a noSQL data model into a normalized SQL database and this has helped diminish the data duplication within all the microservices.',
-      'Improved the code by adding application monitoring and error tracking software which has improved the response time to errors.',
+      {
+        description:
+          'Main developer in the microservice of user authentication and data sharing of over 20,000 users.',
+        role: ['backend'],
+      },
+      {
+        description:
+          // TODO: - WHICH DOES WHAT?
+          'Migrated a noSQL data model into a normalized SQL database and this has helped diminish the data duplication within all the microservices.',
+        role: ['database'],
+      },
+      {
+        description:
+          'Improved the code by adding application monitoring and error tracking software which has improved the response time to errors.',
+        role: ['backend'],
+      },
     ],
     yearStart: 2021,
   },
@@ -72,12 +171,39 @@ export const profile: Project[] = [
       'Kubernetes',
     ],
     highlights: [
-      'Involved in changing web application architecture from monolithic to microservices.',
-      'Implemented micro front-end architecture using VanillaJS, ReactJS.',
-      'Implemented internal library of ReactJS, Redux components',
-      'Worked in the backend using Spring Boot, implementing OAuth2 configuration. Also implemented API configurations and  a custom configuration with Salesforce.',
-      'Development of POC with Kafka by using data dump from client business processes, using Kafka as a message queue, and generating new business process models.',
-      'Involved in optimizing deployments into staging environments. Deployment with Docker, Kubernetes.',
+      {
+        description:
+          'Involved in changing web application architecture from monolithic to microservices.',
+        role: ['frontend', 'backend'],
+      },
+      {
+        description:
+          'Implemented micro front-end architecture using VanillaJS, ReactJS.',
+        role: ['frontend'],
+      },
+      {
+        description:
+          'Implemented internal library of ReactJS, Redux components',
+        role: ['frontend'],
+      },
+      {
+        description:
+          'Worked in the backend using Spring Boot, implementing OAuth2 configuration. Also implemented API configurations and a custom configuration with Salesforce.',
+        role: ['backend'],
+      },
+      {
+        description:
+          'Development of POC with Kafka by using data dump from client business processes, using Kafka as a message queue, and generating new business process models.',
+        role: ['data science', 'backend'],
+      },
+
+      // TODO: - Add NLP work for converting natural language to SQL
+
+      {
+        description:
+          'Involved in optimizing deployments into staging environments. Deployment with Docker, Kubernetes.',
+        role: ['devops'],
+      },
     ],
     summary:
       'Helped in the automation of business processes by making them more efficient and faster. Improved business workflows by taking unstructured and structured business process data for optimization, reduction of bottlenecks and variance in order to save costs by 10-20%.',
@@ -97,12 +223,35 @@ export const profile: Project[] = [
       'Neo4J',
     ],
     highlights: [
-      'In the back-end, setting up the execution of cron jobs to scrape information about listings and feed that information to the database. Also, deployed APIs using serverless functions from Google Cloud to interact with the web client.',
-      'Deployed multiple Flask endpoints using Google Cloud Functions that handle the main logic of the app.',
-      'In the front-end, setting up the client in React+TypeScript and hooking it up with the exposed API service in order to make queries to obtain estimated rent prices in the United States.',
-      'Deployed multiple endpoints that interact with a Neo4J graph database and a MySQL database.',
-      'Developed mobile app version of Rentalios using React Native.',
-      'Built automated integration testing using Postman.',
+      {
+        description:
+          'In the back-end, setting up the execution of cron jobs to scrape information about listings and feed that information to the database. Also, deployed APIs using serverless functions from Google Cloud to interact with the web client.',
+        role: ['devops'],
+      },
+      {
+        description:
+          'Deployed multiple Flask endpoints using Google Cloud Functions that handle the main logic of the app.',
+        role: ['backend', 'devops'],
+      },
+      {
+        description:
+          'In the front-end, setting up the client in React+TypeScript and hooking it up with the exposed API service in order to make queries to obtain estimated rent prices in the United States.',
+        role: ['frontend'],
+      },
+      {
+        description:
+          'Deployed multiple endpoints that interact with a Neo4J graph database and a MySQL database.',
+        role: ['database', 'backend'],
+      },
+      {
+        description:
+          'Developed mobile app version of Rentalios using React Native.',
+        role: ['frontend'],
+      },
+      {
+        description: 'Built automated integration testing using Postman.',
+        role: ['devops', 'backend'],
+      },
     ],
     yearStart: 2019,
     yearEnd: 2019,
@@ -113,9 +262,21 @@ export const profile: Project[] = [
     title: 'Software Engineer',
     skills: ['Python', 'Docker', 'Flask'],
     highlights: [
-      'Automated the deployment process for 10x10, a candidate-job match-making site, by dockerizing their current environment which allowed them for faster testing of their machine learning systems in less time, which results in a better application experience.',
-      'Adapted the machine learning code for matching candidates and jobs logic and deployed this code to an endpoint in a Flask server.',
-      'Created scripts in Python for debugging the matching code being already used. This helped see false positives and negatives in the matches and allowed seeing where the code needed some fine-tuning to provide better results.',
+      {
+        description:
+          'Automated the deployment process for 10x10, a candidate-job match-making site, by dockerizing their current environment which allowed them for faster testing of their machine learning systems in less time, which results in a better application experience.',
+        role: ['devops'],
+      },
+      {
+        description:
+          'Adapted the machine learning code for matching candidates and jobs logic and deployed this code to an endpoint in a Flask server.',
+        role: ['backend', 'data science'],
+      },
+      {
+        description:
+          'Created scripts in Python for debugging the matching code being already used. This helped see false positives and negatives in the matches and allowed seeing where the code needed some fine-tuning to provide better results.',
+        role: ['data science'],
+      },
     ],
     yearStart: 2019,
     yearEnd: 2019,
@@ -126,15 +287,50 @@ export const profile: Project[] = [
     summary: 'www.registria.com',
     title: 'Back-end Engineer and iOS Developer',
     highlights: [
-      'Set up scalable clusters in AWS using authentication.',
-      'Implement secure login and signup flows using JWT with password encryption.',
-      'Deployed a Couchbase database to automatically sync mobile client data with the server.',
-      'Designed backend architecture using data models & swimlane diagrams to describe data flow between servers and client',
-      'Design and testing of backend APIs to support the client app using Postman.',
-      'Built REST API with node.js and Express.',
-      'Designed mobile app architecture following MVC design pattern & optimized codebase.',
-      'Modeled the mobile application’s data model and structures in Swift. Implemented views while working along with the designers to make sure the UI/UX was correct.',
-      'Successfully launched a mobile app to App Store. The app will serve 300 global appliance brands and 500,000+ estimated users.',
+      {
+        description:
+          'Successfully launched a mobile app to App Store. The app will serve 300 global appliance brands and 500,000+ estimated users.',
+        role: ['frontend', 'backend'],
+      },
+      {
+        description: 'Set up scalable clusters in AWS using authentication.',
+        role: ['devops'],
+      },
+      {
+        description:
+          'Implement secure login and signup flows using JWT with password encryption.',
+        role: ['backend'],
+      },
+      {
+        description:
+          'Deployed a Couchbase database to automatically sync mobile client data with the server.',
+        role: ['database'],
+      },
+      {
+        description:
+          'Designed backend architecture using data models & swimlane diagrams to describe data flow between servers and client',
+        role: ['backend'],
+      },
+      {
+        description:
+          'Design and testing of backend APIs to support the client app using Postman.',
+        role: ['backend'],
+      },
+      {
+        description: 'Built REST API with node.js and Express.',
+        role: ['backend'],
+      },
+      // TODO: - Maybe change wording to give understanding of the impact of the next 2 things...
+      {
+        description:
+          'Designed mobile app architecture following MVC design pattern & optimized codebase.',
+        role: ['frontend'],
+      },
+      {
+        description:
+          'Modeled the mobile application’s data model and structures in Swift. Implemented views while working together with the designers to make sure the UI/UX was correct.',
+        role: ['frontend'],
+      },
     ],
     yearStart: 2018,
     yearEnd: 2019,
@@ -156,23 +352,93 @@ export const profile: Project[] = [
     ],
     title: 'Lead Full stack Developer',
     highlights: [
-      'Re-designed backend web architecture and data model for new features.',
-      'Deployed servers for the front-end and back-end improving the deployment pipeline.',
-      'Rebuilt the Node.JS+Express server and updated its structure to be easier to develop newer endpoints.',
-      'Designed and tested new backend APIs to support the client app using Postman.',
-      'Built REST API with node.js and Express. Provided CRUD endpoints for performing application logic, and also custom endpoints for accommodating new functionality of the web app requested by the client.',
-      'Setup and administration of backups.',
-      'Front-end web architecture design.',
-      'Front-end component development using Vue.js, SASS and Leaflet for interactive maps that are one of the critical features of the Ocean Freight Exchange web app, allowing users to view current positions of up to 72,000 vessels in real time.',
-      'Deployed the landing pages in Webflow and also added custom code in jQuery.',
-      'Built the Position List, the main functionality of the web application. This was done by creating the UI that allowed us to display all the results and the complete back-end for providing those results to display via an API.',
-      'Involved in team code reviews following version control practices.',
-      'Engage with clients to obtain requirements, changes and offer suggestions on how to optimize the web application.',
-      'Set-up the deployment process using Docker and automated the build processes of both the front-end and back-end.',
-      'Added e-commerce capabilities to the application in the form of subscription-based accounts. Integrated with Chargebee service for handling recurring subscriptions, valued at $5000 annually per seat.',
-      'As part of the ecommerce development,  split up the functionality of the app for subscribed users, free-trial users, and free users.',
-      'Coordinated with a team across 3 different time zones to build updates to the UI and UX of the application.',
-      'Successful launch of the initial web application for tracking vessels and positions lists, centered in cargoes being transported in Singapore. Initial version of the web app was crucial to securing first investment round of 3.3 million dollar',
+      {
+        description:
+          'Successful launch of the initial web application for tracking vessels and positions lists, centered in cargoes being transported in Singapore. Initial version of the web app was crucial to securing first investment round of 3.3 million dollar',
+        role: ['frontend', 'backend'],
+      },
+
+      {
+        description:
+          'Re-designed backend web architecture and data model for new features.',
+        role: ['backend'],
+      },
+      {
+        description:
+          'Deployed servers for the front-end and back-end improving the deployment pipeline.',
+        role: ['frontend', 'backend', 'devops'],
+      },
+      {
+        description:
+          'Rebuilt the Node.JS+Express server and updated its structure to be easier to develop newer endpoints.',
+        role: ['backend'],
+      },
+      {
+        description:
+          'Designed and tested new backend APIs to support the client app using Postman.',
+        role: ['backend'],
+      },
+      {
+        description:
+          'Built REST API with node.js and Express. Provided CRUD endpoints for performing application logic, and also custom endpoints for accommodating new functionality of the web app requested by the client.',
+        role: ['backend'],
+      },
+      {
+        description:
+          'Front-end component development using Vue.js, SASS and Leaflet for interactive maps that are one of the critical features of the Ocean Freight Exchange web app, allowing users to view current positions of up to 72,000 vessels in real time.',
+        role: ['frontend'],
+      },
+      // TODO: - Talk also about the integration to the whole app as a whole and seamless transitions
+      {
+        description:
+          'Deployed the landing pages in Webflow and also added custom code in jQuery.',
+        role: ['frontend'],
+      },
+      {
+        description:
+          'Built the Position List, the main functionality of the web application. This was done by creating the UI that allowed us to display all the results and the complete back-end for providing those results to display via an API.',
+        role: ['frontend'],
+      },
+      {
+        description:
+          'Involved in team code reviews following version control practices.',
+        role: ['testing', 'management'],
+      },
+      {
+        description:
+          'Engage with clients to obtain requirements, changes and offer suggestions on how to optimize the web application.',
+        role: ['management', 'frontend'],
+      },
+      {
+        description:
+          'Set-up the deployment process using Docker and automated the build processes of both the front-end and back-end.',
+        role: ['devops'],
+      },
+      {
+        description:
+          'Added e-commerce capabilities to the application in the form of subscription-based accounts. Integrated with Chargebee service for handling recurring subscriptions, valued at $5000 annually per seat.',
+        role: ['management', 'backend'],
+      },
+      {
+        description:
+          'As part of the e-commerce development, split up the functionality of the app for subscribed users, free-trial users, and free users.',
+        role: ['frontend', 'backend'],
+      },
+      {
+        description:
+          'Coordinated with a team across 3 different time zones to build updates to the UI and UX of the application.',
+        role: ['frontend'],
+      },
+
+      // TODO: - Rewrite or remove these
+      {
+        description: 'Setup and administration of backups.',
+        role: ['database'],
+      },
+      {
+        description: 'Front-end web architecture design.',
+        role: ['frontend'],
+      },
     ],
     yearStart: 2016,
     yearEnd: 2018,
@@ -181,7 +447,12 @@ export const profile: Project[] = [
     name: 'Live BART',
     title: 'iOS Developer',
     skills: ['Swift', 'Google Ads'],
-    highlights: ['Implemented AdMob for generating ad revenue.'],
+    highlights: [
+      {
+        description: 'Implemented AdMob for generating ad revenue.',
+        role: ['management', 'frontend'],
+      },
+    ],
     yearStart: 2017,
     yearEnd: 2017,
   },
@@ -190,9 +461,20 @@ export const profile: Project[] = [
     skills: ['Node.JS', 'Express', 'Vue.js'],
     title: 'Backend Developer',
     highlights: [
-      'Implemented a server using NuxtJS.',
-      'Implement secure login and signup flows using JWT with password encryption.',
-      'Developed portions of the web UI version of Swap using Vue.js.',
+      {
+        description: 'Implemented a server using NuxtJS.',
+        role: ['frontend', 'backend'],
+      },
+      {
+        description:
+          'Implement secure login and signup flows using JWT with password encryption.',
+        role: ['backend'],
+      },
+      {
+        description:
+          'Developed portions of the web UI version of Swap using Vue.js.',
+        role: ['frontend'],
+      },
     ],
     yearStart: 2017,
     yearEnd: 2017,
@@ -202,7 +484,11 @@ export const profile: Project[] = [
     skills: ['jQuery', 'Webflow'],
     title: 'Frontend Developer',
     highlights: [
-      'Deploy landing pages in Webflow and also added custom code in jQuery',
+      {
+        description:
+          'Deploy landing pages in Webflow and also added custom code in jQuery',
+        role: ['frontend'],
+      },
     ],
     yearStart: 2016,
     yearEnd: 2016,

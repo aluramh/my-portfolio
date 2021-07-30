@@ -1,5 +1,5 @@
 import React from 'react'
-import { Project } from '../../../assets/data/profile'
+import { Project, skillMap } from '../../../assets/data/profile'
 import Pill from './Pill'
 
 interface Props {
@@ -20,7 +20,10 @@ const ProjectDescription: React.FC<Props> = props => {
       )}
       <div className='flex justify-between items-center'>
         <div>
-          <h2 className='font-semibold leading-snug tracking-wide text-3xl mb-1'>
+          <h2
+            className='font-semibold leading-snug tracking-wide text-3xl mb-1'
+            title={`${project.yearStart} - ${project.yearEnd || 'Current'}`}
+          >
             {project.name}
           </h2>
           <h3 className='text-gray-500 font-extralight'>{project.title}</h3>
@@ -31,7 +34,11 @@ const ProjectDescription: React.FC<Props> = props => {
       {/* List of skills */}
       <ul className='flex flex-wrap'>
         {filteredSkills.map(skill => (
-          <Pill className='mr-1 mb-1 cursor-pointer' key={skill}>
+          <Pill
+            className='mr-1 mb-1 cursor-pointer'
+            key={skill}
+            color={skillMap[skill]?.preferredColor}
+          >
             {skill}
           </Pill>
         ))}
@@ -42,7 +49,7 @@ const ProjectDescription: React.FC<Props> = props => {
         <ul>
           {/* Only show 3 highlights in the cards */}
           {project.highlights.slice(0, 2).map((highlight, index) => (
-            <li key={index}>{highlight}</li>
+            <li key={index}>{highlight.description}</li>
           ))}
         </ul>
 
