@@ -64,7 +64,7 @@ const Navbar: FC = props => {
                         'transform translate-y-0.5',
                         'lg:block',
                       )}
-                      style={{ fontFamily: `'Oswald',sans-serif;` }}
+                      style={{ fontFamily: `'Oswald', sans-serif` }}
                     >
                       Alex R.
                     </div>

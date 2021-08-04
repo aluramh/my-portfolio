@@ -1,8 +1,10 @@
 import clsx from 'clsx'
 import React from 'react'
+import Image from 'next/image'
+
 import { headline } from '../../assets/data/profile'
-import profilePic from '../../assets/images/pixel-me.svg'
 import PixelMe from '../PixelMe'
+import blob from '../../assets/images/blob.svg'
 
 const Headline = () => {
   return (
@@ -34,12 +36,22 @@ const Headline = () => {
             </div>
           </div>
 
-          <p id='headline-text' className="text-lg">{headline}</p>
+          <p id='headline-text' className='text-lg'>
+            {headline}
+          </p>
         </div>
 
         {/* Right side */}
-        <div className='hidden sm:block w-1/2 py-10 pl-14'>
-          <PixelMe className='cursor-pointer' />
+        <div className='relative hidden sm:block w-1/2 py-10 pl-14'>
+          {/* Blob background */}
+          <div className='z-0 h-full w-full absolute transform scale-150'>
+            <Image src={blob} layout='fill' className='h-96'/>
+          </div>
+
+          {/* Image */}
+          <div className='z-50 relative'>
+            <PixelMe className='cursor-pointer' />
+          </div>
         </div>
       </div>
     </section>
