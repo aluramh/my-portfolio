@@ -5,11 +5,11 @@ import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import clsx from 'clsx'
 
+import brandImage from '../../assets/icons/brand_logo.svg'
+
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Home', href: '#', current: true },
+  { name: 'Blog', href: 'https://blogexmachina.netlify.app', current: false },
 ]
 
 const Navbar: FC = props => {
@@ -39,16 +39,35 @@ const Navbar: FC = props => {
                 </div>
                 <div className='flex-1 flex items-center justify-center sm:items-stretch sm:justify-start'>
                   <div className='flex-shrink-0 flex items-center'>
-                    <img
-                      className='block lg:hidden h-8 w-auto'
-                      src='https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg'
-                      alt='Workflow'
-                    />
-                    <img
-                      className='hidden lg:block h-8 w-auto'
-                      src='https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg'
-                      alt='Workflow'
-                    />
+                    {/* For large screens */}
+                    <div className='relative block lg:hidden h-10 w-10 align-middle'>
+                      <Image
+                        src={brandImage}
+                        layout='fill'
+                        className='transform translate-y-1'
+                      />
+                    </div>
+
+                    <div className='relative hidden lg:block h-10 w-10 align-middle'>
+                      <Image
+                        src={brandImage}
+                        layout='fill'
+                        className='transform translate-y-1'
+                      />
+                    </div>
+
+                    {/* For smaller screens */}
+                    <div
+                      className={clsx(
+                        'hidden h-8 w-auto ml-3',
+                        'uppercase font-extrabold text-white',
+                        'transform translate-y-0.5',
+                        'lg:block',
+                      )}
+                      style={{ fontFamily: `'Oswald',sans-serif;` }}
+                    >
+                      Alex R.
+                    </div>
                   </div>
                   <div className='hidden sm:block sm:ml-6'>
                     <div className='flex space-x-4'>

@@ -13,8 +13,8 @@ const ProjectDescription: React.FC<Props> = props => {
   return (
     <div className=' bg-white space-y-3 px-6 pt-4 pb-6 rounded-3xl shadow-lg border flex flex-col'>
       {project.image && (
-        <img
-          src='https://tailwindui.com/img/components/home-screens.02-card-layout-with-sidebar-xl.png'
+        <div
+          // src='https://tailwindui.com/img/components/home-screens.02-card-layout-with-sidebar-xl.png'
           className='w-full h-32 object-cover rounded-xl hover:filter hover:brightness-75 transition'
         />
       )}
