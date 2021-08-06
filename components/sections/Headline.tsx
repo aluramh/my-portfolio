@@ -45,7 +45,12 @@ const Headline = () => {
         <div className='relative hidden sm:block w-1/2 py-10 pl-14'>
           {/* Blob background */}
           <div className='z-0 h-full w-full absolute transform scale-150'>
-            <Image src={blob} layout='fill' className='h-96'/>
+            <Image
+              src={blob}
+              layout='fill'
+              className='h-96'
+              alt='Blob background'
+            />
           </div>
 
           {/* Image */}

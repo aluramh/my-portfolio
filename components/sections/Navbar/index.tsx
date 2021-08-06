@@ -1,18 +1,28 @@
 /* This example requires Tailwind CSS v2.0+ */
 import React, { FC } from 'react'
-import Image from 'next/image'
+import Link from 'next/link'
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import clsx from 'clsx'
 
-import brandImage from '../../assets/icons/brand_logo.svg'
+import Logo from '../../icons/Logo'
+import MenuItem from './MenuItem'
+import { useRouter } from 'next/router'
 
-const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'Blog', href: 'https://blogexmachina.netlify.app', current: false },
+export type NavigationItem = {
+  name: string
+  href: string
+}
+
+const navigation: NavigationItem[] = [
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'Blog', href: 'https://blogexmachina.netlify.app' },
 ]
 
 const Navbar: FC = props => {
+  const router = useRouter()
+
   return (
     <nav className='bg-teal-800'>
       <Disclosure as='div' className='container mx-auto'>
@@ -40,26 +50,24 @@ const Navbar: FC = props => {
                 <div className='flex-1 flex items-center justify-center sm:items-stretch sm:justify-start'>
                   <div className='flex-shrink-0 flex items-center'>
                     {/* For large screens */}
-                    <div className='relative block lg:hidden h-10 w-10 align-middle'>
-                      <Image
-                        src={brandImage}
-                        layout='fill'
-                        className='transform translate-y-1'
-                      />
+                    <div
+                      className='relative block lg:hidden h-10 w-10 align-middle cursor-pointer'
+                      onClick={() => router.push('/')}
+                    >
+                      <Logo />
                     </div>
 
-                    <div className='relative hidden lg:block h-10 w-10 align-middle'>
-                      <Image
-                        src={brandImage}
-                        layout='fill'
-                        className='transform translate-y-1'
-                      />
+                    <div
+                      className='cursor-pointer relative hidden lg:block h-10 w-10 align-middle'
+                      onClick={() => router.push('/')}
+                    >
+                      <Logo />
                     </div>
 
                     {/* For smaller screens */}
                     <div
                       className={clsx(
-                        'hidden h-8 w-auto ml-3',
+                        'hidden h-8 w-auto ml-6',
                         'uppercase font-extrabold text-white',
                         'transform translate-y-0.5',
                         'lg:block',
@@ -69,26 +77,17 @@ const Navbar: FC = props => {
                       Alex R.
                     </div>
                   </div>
+
+                  {/* Menu items for larger screens */}
                   <div className='hidden sm:block sm:ml-6'>
                     <div className='flex space-x-4'>
                       {navigation.map(item => (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          className={clsx(
-                            item.current
-                              ? 'bg-teal-900 text-white'
-                              : 'text-teal-300 hover:bg-teal-700 hover:text-white',
-                            'px-3 py-2 rounded-md text-sm font-medium',
-                          )}
-                          aria-current={item.current ? 'page' : undefined}
-                        >
-                          {item.name}
-                        </a>
+                        <MenuItem item={item} key={item.href} />
                       ))}
                     </div>
                   </div>
                 </div>
+
                 <div className='absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
                   {/* <button className='bg-teal-800 p-1 rounded-full text-teal-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-teal-800 focus:ring-white'>
                     <span className='sr-only'>View notifications</span>
@@ -112,22 +111,11 @@ const Navbar: FC = props => {
               </div>
             </div>
 
+            {/* Mobile nav items */}
             <Disclosure.Panel className='sm:hidden'>
               <div className='px-2 pt-2 pb-3 space-y-1'>
                 {navigation.map(item => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className={clsx(
-                      item.current
-                        ? 'bg-teal-900 text-white'
-                        : 'text-teal-300 hover:bg-teal-700 hover:text-white',
-                      'block px-3 py-2 rounded-md text-base font-medium',
-                    )}
-                    aria-current={item.current ? 'page' : undefined}
-                  >
-                    {item.name}
-                  </a>
+                  <MenuItem item={item} key={item.href} />
                 ))}
               </div>
             </Disclosure.Panel>
