@@ -21,10 +21,14 @@ const Headline = () => {
           <div className='flex flex-row mb-4 sm:mb-3'>
             {/* Introduction and name */}
             <div className='w-2/3'>
-              <div className='text-base font-normal mb-3 sm:text-sm'>
-                Hello! My name is
-              </div>
-              <div className='text-6xl sm:text-5xl md:text-8xl font-bold text-teal-900 mb-4 sm:mb-3'>
+              <div className='text-lg mb-3 text-teal-800'>Hello! My name is</div>
+              <div
+                className='text-6xl sm:text-5xl md:text-8xl font-bold text-teal-900 mb-4 sm:mb-3'
+                style={{
+                  fontFamily: `'Oswald', sans-serif`,
+                  fontStretch: 'expanded',
+                }}
+              >
                 Alex <br className='sm:hidden' />
                 Ramírez
               </div>
@@ -36,7 +40,7 @@ const Headline = () => {
             </div>
           </div>
 
-          <p id='headline-text' className='text-lg'>
+          <p id='headline-text' className='text-lg text-teal-800'>
             {headline}
           </p>
         </div>
@@ -54,7 +58,7 @@ const Headline = () => {
           </div>
 
           {/* Image */}
-          <div className='z-50 relative'>
+          <div className='z-10 relative'>
             <PixelMe className='cursor-pointer' />
           </div>
         </div>

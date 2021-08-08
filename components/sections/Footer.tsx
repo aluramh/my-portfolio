@@ -1,7 +1,10 @@
+import clsx from 'clsx'
 import React from 'react'
 import SocialRow from '../SocialRow'
 
 interface Props {}
+
+const email = 'aluramh@gmail.com'
 
 const Footer: React.FC<Props> = props => {
   const d = new Date()
@@ -13,17 +16,19 @@ const Footer: React.FC<Props> = props => {
       className='py-24 flex align-middle'
     >
       <div className='sm:mx-auto'>
-        <div className='text-xl mb-2 text-teal-700'>
+        <div className='text-base mb-2 text-teal-700'>
           {"Let's work together."}
         </div>
 
-        <div className='md:text-5xl tracking-wide font-medium text-2xl sm:text-3xl'>
-          <a
-            href='mailto:aluramh@gmail.com'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            aluramh@gmail.com
+        <div
+          className={clsx(
+            'tracking-wide font-bold text-2xl',
+            'md:text-5xl sm:text-3xl',
+            'transition-colors text-teal-800 hover:text-teal-900',
+          )}
+        >
+          <a href={`mailto:${email}`} target='_blank' rel='noopener noreferrer'>
+            {email}
           </a>
         </div>
 

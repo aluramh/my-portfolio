@@ -9,15 +9,15 @@ interface Props {
 const Pill: React.FC<Props> = ({ children, className, color = 'red' }) => (
   <li
     className={clsx(
-      `rounded-3xl text-white text-md whitespace-nowrap text-sm`,
-      'px-4 py-0.5',
+      `rounded text-white text-md whitespace-nowrap text-xs`,
+      'px-3 py-0.5',
       // Add a default color if a color was not given
       !color && 'bg-teal-400',
       className,
     )}
     style={{ backgroundColor: color }}
   >
-    {children}
+    <span className='opacity-95'>{children}</span>
   </li>
 )
 

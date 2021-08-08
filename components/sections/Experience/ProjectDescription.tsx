@@ -21,21 +21,23 @@ const ProjectDescription: React.FC<Props> = props => {
       <div className='flex justify-between items-center'>
         <div>
           <h2
-            className='font-semibold leading-snug tracking-wide text-3xl mb-1'
+            className='font-semibold leading-snug tracking-wide text-2xl mb-1'
             title={`${project.yearStart} - ${project.yearEnd || 'Current'}`}
           >
             {project.name}
           </h2>
-          <h3 className='text-gray-500 font-extralight'>{project.title}</h3>
+          <h3 className='text-gray-500'>{project.title}</h3>
         </div>
-        <div className='font-extrabold'>...</div>
+
+        {/* TODO: - Button for a modal that shows more details?*/}
+        {/* <div className='font-extrabold'>...</div> */}
       </div>
 
       {/* List of skills */}
       <ul className='flex flex-wrap'>
         {filteredSkills.map(skill => (
           <Pill
-            className='mr-1 mb-1 cursor-pointer'
+            className='mr-0.5 mb-1 cursor-pointer'
             key={skill}
             color={skillMap[skill]?.preferredColor}
           >

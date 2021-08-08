@@ -8,6 +8,7 @@ import clsx from 'clsx'
 import Logo from '../../icons/Logo'
 import MenuItem from './MenuItem'
 import { useRouter } from 'next/router'
+import styled from 'styled-components'
 
 export type NavigationItem = {
   name: string
@@ -16,7 +17,6 @@ export type NavigationItem = {
 
 const navigation: NavigationItem[] = [
   { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
   { name: 'Blog', href: 'https://blogexmachina.netlify.app' },
 ]
 
@@ -24,11 +24,14 @@ const Navbar: FC = props => {
   const router = useRouter()
 
   return (
-    <nav className='bg-teal-800'>
-      <Disclosure as='div' className='container mx-auto'>
+    <nav className='bg-teal-800 w-full z-50 fixed'>
+      <Disclosure
+        as='div'
+        className='container mx-auto w-full z-50 px-4 sm:px-8 lg:px-24'
+      >
         {({ open }) => (
           <>
-            <div className='max-w-7xl mx-auto px-2 sm:px-6 lg:px-8'>
+            <div className='max-w-7xl'>
               <div className='relative flex items-center justify-between h-16'>
                 <div className='absolute inset-y-0 left-0 flex items-center sm:hidden'>
                   {/* Mobile menu button*/}
@@ -67,14 +70,17 @@ const Navbar: FC = props => {
                     {/* For smaller screens */}
                     <div
                       className={clsx(
-                        'hidden h-8 w-auto ml-6',
-                        'uppercase font-extrabold text-white',
-                        'transform translate-y-0.5',
+                        'hidden h-8 w-auto ml-4',
+                        'uppercase font-extrabold text-white tracking-tight text-2xl',
+                        // 'transform -translate-y-0.5',
                         'lg:block',
                       )}
-                      style={{ fontFamily: `'Oswald', sans-serif` }}
+                      style={{
+                        fontFamily: `'Oswald', sans-serif`,
+                        fontStretch: 'expanded',
+                      }}
                     >
-                      Alex R.
+                      Alex R
                     </div>
                   </div>
 
