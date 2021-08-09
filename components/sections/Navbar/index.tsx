@@ -17,7 +17,7 @@ export type NavigationItem = {
 
 const navigation: NavigationItem[] = [
   { name: 'Home', href: '/' },
-  { name: 'Blog', href: 'https://blogexmachina.netlify.app' },
+  { name: 'Blog', href: 'https://blog.alexram.dev' },
 ]
 
 const Navbar: FC = props => {
