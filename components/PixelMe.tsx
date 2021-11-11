@@ -1,6 +1,7 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
+import { gsap } from 'gsap'
 
 // Import pixel
 import bodyImage from './pixel_me_body.png'
@@ -33,11 +34,26 @@ const PixelContainer = styled.div<{ size: Sizes }>`
 
 const PixelMe: React.FC<Props> = props => {
   const { size = 7 } = props
+  const armRef = useRef(null)
+
+  function rotateArm () {
+    const deg = 25
+    gsap.to(armRef.current, { rotation: `+=${deg}`, duration: 1 })
+    gsap.to(armRef.current, { rotation: `-=${deg}`, delay: 1, duration: 1 })
+  }
 
   return (
-    <PixelContainer className='  mx-auto' size={size}>
+    <PixelContainer className='mx-auto' size={size}>
       <Image src={bodyImage} layout='fill' objectFit='cover' />
-      <Image src={armImage} layout='fill' objectFit='cover' />
+
+      <div
+        ref={armRef}
+        // style={{ height: '500px', width: '500px' }}
+        className='w-full h-full'
+        onClick={rotateArm}
+      >
+        <Image src={armImage} layout='fill' objectFit='cover' />
+      </div>
     </PixelContainer>
   )
 }
