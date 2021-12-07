@@ -46,7 +46,7 @@ const Headline = () => {
         </div>
 
         {/* Right side */}
-        <div className='relative hidden sm:block w-1/2 py-10 pl-14'>
+        <div className='relative hidden sm:block w-1/2 py-10 pl-14 overflow-x-hidden'>
           {/* Blob background */}
           <div className='z-0 h-full w-full absolute transform scale-150'>
             <Image
