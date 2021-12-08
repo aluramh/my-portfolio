@@ -8,7 +8,7 @@ import blob from '../../assets/images/blob.svg'
 
 const Headline = () => {
   return (
-    <section id='headline'>
+    <section id="headline">
       <div
         className={clsx(
           'flex-col items-center pt-20',
@@ -17,19 +17,21 @@ const Headline = () => {
         )}
       >
         {/* Left side */}
-        <div className='sm:w-1/2 text-base'>
-          <div className='flex flex-row mb-4 sm:mb-3'>
+        <div className="sm:w-1/2 text-base">
+          <div className="flex flex-row mb-4 sm:mb-3">
             {/* Introduction and name */}
-            <div className='w-2/3'>
-              <div className='text-lg mb-2 text-teal-800'>Hello! My name is</div>
+            <div className="w-2/3">
+              <div className="text-lg mb-2 text-teal-800">
+                Hello! My name is
+              </div>
               <div
-                className='text-6xl sm:text-5xl md:text-8xl font-bold text-teal-900'
+                className="text-6xl sm:text-5xl md:text-8xl font-bold text-teal-900"
                 style={{
                   fontFamily: `'Oswald', sans-serif`,
                   fontStretch: 'expanded',
                 }}
               >
-                Alex <br className='sm:hidden' />
+                Alex <br className="sm:hidden" />
                 Ramírez
               </div>
             </div>
@@ -41,26 +43,26 @@ const Headline = () => {
             </div> */}
           </div>
 
-          <p id='headline-text' className='text-lg text-teal-800'>
+          <p id="headline-text" className="text-lg text-teal-800">
             {headline}
           </p>
         </div>
 
         {/* Right side */}
-        <div className='relative hidden sm:block w-1/2 py-10 pl-14 overflow-hidden'>
+        <div className="relative hidden sm:block w-1/2 py-10 pl-14 overflow-hidden">
           {/* Blob background */}
-          <div className='z-0 h-full w-full absolute transform scale-150'>
+          <div className="z-0 h-full w-full absolute transform scale-150">
             <Image
               src={blob}
-              layout='fill'
-              className='h-96'
-              alt='Blob background'
+              layout="fill"
+              className="h-96"
+              alt="Blob background"
             />
           </div>
 
           {/* Image */}
-          <div className='z-10 relative'>
-            <PixelMe className='cursor-pointer' />
+          <div className="z-10 relative">
+            <PixelMe className="cursor-pointer" />
           </div>
         </div>
       </div>
