@@ -15,7 +15,6 @@ interface Props {
   className?: string
   size?: Sizes
 }
-
 const PixelContainer = styled.div<{ size: Sizes }>`
   position: relative;
 
@@ -32,28 +31,30 @@ const PixelContainer = styled.div<{ size: Sizes }>`
   }
 `
 
-const PixelMe: React.FC<Props> = props => {
+const PixelMe: React.FC<Props> = (props) => {
   const { size = 7 } = props
   const armRef = useRef(null)
 
-  function rotateArm () {
+  function rotateArm() {
     const deg = 25
+
     gsap.to(armRef.current, { rotation: `+=${deg}`, duration: 1 })
     gsap.to(armRef.current, { rotation: `-=${deg}`, delay: 1, duration: 1 })
   }
 
   return (
-    <PixelContainer className='mx-auto' size={size}>
-      <Image src={bodyImage} layout='fill' objectFit='cover' />
-
+    <PixelContainer className="mx-auto" size={size} onClick={rotateArm}>
+      {/* Arm */}
       <div
         ref={armRef}
         // style={{ height: '500px', width: '500px' }}
-        className='w-full h-full'
-        onClick={rotateArm}
+        className="w-full h-full transform"
       >
-        <Image src={armImage} layout='fill' objectFit='cover' />
+        <Image id="arm-svg" src={armImage} layout="fill" objectFit="cover" />
       </div>
+
+      {/* Body */}
+      <Image src={bodyImage} layout="fill" objectFit="cover" />
     </PixelContainer>
   )
 }
