@@ -11,9 +11,9 @@ const Headline = () => {
     <section id='headline'>
       <div
         className={clsx(
-          'flex-col items-center pt-5',
+          'flex-col items-center pt-20',
           'text-teal-700 leading-relaxed tracking-wide',
-          'sm:flex sm:flex-row sm:h-screen',
+          'sm:flex sm:flex-row sm:h-screen sm:pt-5',
         )}
       >
         {/* Left side */}
@@ -21,9 +21,9 @@ const Headline = () => {
           <div className='flex flex-row mb-4 sm:mb-3'>
             {/* Introduction and name */}
             <div className='w-2/3'>
-              <div className='text-lg mb-3 text-teal-800'>Hello! My name is</div>
+              <div className='text-lg mb-2 text-teal-800'>Hello! My name is</div>
               <div
-                className='text-6xl sm:text-5xl md:text-8xl font-bold text-teal-900 mb-4 sm:mb-3'
+                className='text-6xl sm:text-5xl md:text-8xl font-bold text-teal-900'
                 style={{
                   fontFamily: `'Oswald', sans-serif`,
                   fontStretch: 'expanded',
@@ -34,10 +34,11 @@ const Headline = () => {
               </div>
             </div>
 
+            {/* TODO: - Disabling now for mobile until I fix it */}
             {/* Appears on top when on mobile */}
-            <div className='flex sm:hidden w-1/3 justify-center self-center h-32'>
+            {/* <div className='flex sm:hidden w-1/3 justify-center self-center h-32'>
               <PixelMe />
-            </div>
+            </div> */}
           </div>
 
           <p id='headline-text' className='text-lg text-teal-800'>
