@@ -22,7 +22,7 @@ const Footer: React.FC<Props> = props => {
 
         <div
           className={clsx(
-            'tracking-wide font-extrabold text-2xl',
+            'tracking-wide font-extrabold text-3xl',
             'md:text-5xl sm:text-3xl headline-text',
             'transition-colors text-teal-800 hover:text-teal-900',
           )}
@@ -37,7 +37,7 @@ const Footer: React.FC<Props> = props => {
 
         <SocialRow />
 
-        <div className='text-sm text-teal-700'>
+        <div className='text-sm text-teal-700 opacity-50'>
           © {d.getFullYear()}, designed and developed by{' '}
           <span className='underline'>Alex Ramírez</span>
         </div>

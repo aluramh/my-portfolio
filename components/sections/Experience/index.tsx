@@ -29,7 +29,7 @@ const Experience: React.FC<Props> = (props) => {
           )}
           onClick={() => setShowAll(!showAll)}
         >
-          {showAll ? 'Show all' : 'Show relevant'}
+          {showAll ? 'Show relevant' : 'Show all'}
         </button>
       </div>
 
