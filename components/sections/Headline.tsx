@@ -31,7 +31,7 @@ const Headline = () => {
             </div>
 
             {/* Appears on top when on mobile */}
-            <div className='flex sm:hidden w-1/3 justify-center self-center h-32'>
+            <div className="flex sm:hidden w-1/3 justify-center self-center h-32">
               <PixelMe size={3} />
             </div>
           </div>

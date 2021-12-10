@@ -49,7 +49,12 @@ const PixelMe: React.FC<Props> = (props) => {
         // style={{ height: '500px', width: '500px' }}
         className="w-full h-full transform"
       >
-        <Image id="arm-svg" src={armImage} layout="responsive" objectFit="cover" />
+        <Image
+          id="arm-svg"
+          src={armImage}
+          layout="responsive"
+          objectFit="cover"
+        />
       </div>
 
       {/* Body */}
