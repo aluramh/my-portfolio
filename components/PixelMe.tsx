@@ -17,7 +17,6 @@ interface Props {
 }
 const PixelContainer = styled.div<{ size: Sizes }>`
   position: relative;
-
   ${({ size }) => `
     height: ${HEIGHT * size}px;
     width: ${WIDTH * size}px;
@@ -50,11 +49,11 @@ const PixelMe: React.FC<Props> = (props) => {
         // style={{ height: '500px', width: '500px' }}
         className="w-full h-full transform"
       >
-        <Image id="arm-svg" src={armImage} layout="fill" objectFit="cover" />
+        <Image id="arm-svg" src={armImage} layout="responsive" objectFit="cover" />
       </div>
 
       {/* Body */}
-      <Image src={bodyImage} layout="fill" objectFit="cover" />
+      <Image src={bodyImage} layout="responsive" objectFit="cover" />
     </PixelContainer>
   )
 }

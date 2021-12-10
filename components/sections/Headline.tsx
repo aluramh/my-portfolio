@@ -30,11 +30,10 @@ const Headline = () => {
               </div>
             </div>
 
-            {/* TODO: - Disabling now for mobile until I fix it */}
             {/* Appears on top when on mobile */}
-            {/* <div className='flex sm:hidden w-1/3 justify-center self-center h-32'>
-              <PixelMe />
-            </div> */}
+            <div className='flex sm:hidden w-1/3 justify-center self-center h-32'>
+              <PixelMe size={3} />
+            </div>
           </div>
 
           <p id="headline-text" className="text-lg text-teal-800">
