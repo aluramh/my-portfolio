@@ -133,6 +133,18 @@ export const skillMap: SkillMap = skills.reduce((all: SkillMap, current) => {
 
 export const profile: Project[] = [
   {
+    name: 'Atlassian',
+    title: 'Software Engineer',
+    skills: ['ReactJS', 'TypeScript', 'Node.JS', 'AWS'],
+    highlights: [
+      {
+        description: 'Full stack engineer in the Data Residency project',
+        role: ['frontend', 'backend'],
+      },
+    ],
+    yearStart: 2021,
+  },
+  {
     name: 'Ciitizen',
     title: 'Full stack developer',
     skills: ['Node.JS', 'Express', 'Vue.js', 'PostgreSQL', 'AWS'],
@@ -155,6 +167,7 @@ export const profile: Project[] = [
       },
     ],
     yearStart: 2021,
+    yearEnd: 2021,
   },
   {
     name: 'LiveObjects',
