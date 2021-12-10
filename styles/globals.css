@@ -14,3 +14,9 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.headline-text {
+  font-family: 'Playfair Display', serif;
+  font-stretch: expanded;
+  font-weight: bold;
+}

@@ -22,8 +22,8 @@ const Footer: React.FC<Props> = props => {
 
         <div
           className={clsx(
-            'tracking-wide font-bold text-2xl',
-            'md:text-5xl sm:text-3xl',
+            'tracking-wide font-extrabold text-2xl',
+            'md:text-5xl sm:text-3xl headline-text',
             'transition-colors text-teal-800 hover:text-teal-900',
           )}
         >

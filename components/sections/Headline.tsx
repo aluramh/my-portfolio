@@ -24,13 +24,7 @@ const Headline = () => {
               <div className="text-lg mb-2 text-teal-800">
                 Hello! My name is
               </div>
-              <div
-                className="text-6xl sm:text-5xl md:text-8xl font-bold text-teal-900"
-                style={{
-                  fontFamily: `'Oswald', sans-serif`,
-                  fontStretch: 'expanded',
-                }}
-              >
+              <div className="text-6xl sm:text-5xl md:text-8xl font-bold text-teal-900 headline-text">
                 Alex <br className="sm:hidden" />
                 Ramírez
               </div>
