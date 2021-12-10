@@ -59,6 +59,10 @@ export type Project = {
    * URL string to an image that describes the project
    */
   image?: string
+  /**
+   * Boolean to show it's a relevant project that we want to highlight
+   */
+  relevant?: boolean
 }
 
 export type Degree = {
@@ -143,6 +147,7 @@ export const profile: Project[] = [
       },
     ],
     yearStart: 2021,
+    relevant: true,
   },
   {
     name: 'Ciitizen',
@@ -168,6 +173,7 @@ export const profile: Project[] = [
     ],
     yearStart: 2021,
     yearEnd: 2021,
+    relevant: true,
   },
   {
     name: 'LiveObjects',
@@ -222,6 +228,7 @@ export const profile: Project[] = [
       'Helped in the automation of business processes by making them more efficient and faster. Improved business workflows by taking unstructured and structured business process data for optimization, reduction of bottlenecks and variance in order to save costs by 10-20%.',
     yearStart: 2020,
     yearEnd: 2020,
+    relevant: true,
   },
   {
     name: 'Rentalios',
@@ -347,6 +354,7 @@ export const profile: Project[] = [
     ],
     yearStart: 2018,
     yearEnd: 2019,
+    relevant: true,
   },
   {
     name: 'Ocean Freight Exchange',
